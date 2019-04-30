@@ -25,7 +25,7 @@ SECRET_KEY = 'im*sehf85h^aikiuga4s%cnmfy1e+zfc747&%%g#f-k3#gm9ts'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cmdtrail.herokuapp.com']
 
 
 # Application definition
