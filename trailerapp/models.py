@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Door(models.Model):
-    door_number = models.CharField(max_length=2)
+    door_number = models.IntegerField()
     trailer_number = models.CharField(max_length=100, default='No Trailer')
     EMPTY = 'Empty'
     LOADED = 'Loaded'

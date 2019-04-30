@@ -4,7 +4,7 @@ from .forms import DoorForm
 
 
 def main(request):
-    all_doors = Door.objects.all
+    all_doors = Door.objects.order_by('door_number')
     return render(request, 'index.html', {'all_doors': all_doors})
 
 
