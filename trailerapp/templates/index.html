@@ -7,43 +7,51 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container">
+<div class="container">
   <div class="table-responsive">
 	<table class="table">
   <thead>
     <tr>
-      <th scope="col">Bay #</th>
-      <th scope="col">Trailer</th>
-      <th scope="col"></th>
-      <th scope="col">Status</th>
-      <th scope="col"></th>
+      <td scope="col"><strong>Bay #</strong></td>
+      <td scope="col"><strong>Trailer</strong></td>
+      
+      <td scope="col"><strong>Status</strong></td>
+      <td scope="col"></td>
+      <td scope="col"></td>
     </tr>
   </thead>
   <tbody>
   	{% for doors in all_doors %}
     <tr>
-      <th scope="row"><h4>{{ doors.door_number }}</h4></th>
-      <td><strong>{{ doors.trailer_number }}</strong>
+      <th scope="row"><h3>{{ doors.door_number }}</h3></th>
+      <td>{{ doors.trailer_number }}
       </td>
       <td>{{ doors.status }}</td><td>
+        {% if user.is_authenticated %}
 		<div class="dropdown">
 		<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Change
+		Set
 		</a>
 		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 			<a class="dropdown-item" href="{% url 'empty' doors.id %}">Empty</a>
 			<a class="dropdown-item" href="{% url 'loaded' doors.id %}">Loaded</a>
 			<a class="dropdown-item" href="{% url 'in_progress' doors.id %}">In Progress</a>
+      <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="{% url 'clear' doors.id %}">Clear</a>
       <a class="dropdown-item" href="{% url 'edit' doors.id %}">Add</a>
 		</div>
 		</div>
+     {% endif %}
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
 </div>
+{% if user.is_authenticated %}
+{% else %}
+<div class="container text-center"><a href="{% url 'login' %}">Login</a></div>
+{% endif %}
 </div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

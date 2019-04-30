@@ -17,4 +17,4 @@ class Door(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='3')
 
     def __str__(self):
-        return self.door_number + ' | ' + self.trailer_number + ' | ' + self.status
+        return str(self.door_number) + ' | ' + self.trailer_number + ' | ' + self.status

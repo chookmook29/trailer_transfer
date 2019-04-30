@@ -8,4 +8,5 @@ urlpatterns = [
      path('in_progress/<door_id>', views.in_progress, name='in_progress'),
      path('clear/<door_id>', views.clear, name='clear'),
      path('edit/<door_id>', views.edit, name='edit'),
+     path('login/', views.login_user, name='login'),
 ]
