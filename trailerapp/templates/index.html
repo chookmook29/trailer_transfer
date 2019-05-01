@@ -23,10 +23,23 @@
   <tbody>
   	{% for doors in all_doors %}
     <tr>
-      <th scope="row"><h3>{{ doors.door_number }}</h3></th>
+      {% if doors.status == 'None' %}
+      <th scope="row" style="color: green"><h3>{{ doors.door_number }}</h3></th>
+      {% else %}
+      <th scope="row" style="color:red"><h3>{{ doors.door_number }}</h3></th>
+      {% endif %}
       <td>{{ doors.trailer_number }}
       </td>
-      <td>{{ doors.status }}</td><td>
+      {% if doors.status == 'Loaded' %}
+      <td style="background-color: yellow">{{ doors.status }}</td>
+      {% elif doors.status == 'Empty' %}
+      <td style="background-color: green">{{ doors.status }}</td>
+      {% elif doors.status == 'In Progress' %}
+      <td style="background-color: red">{{ doors.status }}</td>
+      {% else %}
+      <td>{{ doors.status }}</td>
+      {% endif %}
+    <td>
         {% if user.is_authenticated %}
 		<div class="dropdown">
 		<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
