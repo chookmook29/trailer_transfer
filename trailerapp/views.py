@@ -38,6 +38,12 @@ def clear(request, door_id):
     return redirect('main')
 
 
+def pushback(request, door_id):
+    item = Door.objects.get(pk=door_id)
+    item.status = 'Pushback'
+    item.save()
+    return redirect('main')
+
 def edit(request, door_id):
     if request.method == 'POST':
         item = Door.objects.get(pk=door_id)

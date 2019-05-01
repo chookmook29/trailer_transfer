@@ -25,6 +25,8 @@
     <tr>
       {% if doors.status == 'None' %}
       <th scope="row" style="color: green"><h3>{{ doors.door_number }}</h3></th>
+      {% elif doors.status == 'Pushback' %}
+      <th scope="row" style="color: red"><h3>{{ doors.door_number }}!</h3></th>
       {% else %}
       <th scope="row" style="color:red"><h3>{{ doors.door_number }}</h3></th>
       {% endif %}
@@ -36,6 +38,8 @@
       <td style="background-color: green">{{ doors.status }}</td>
       {% elif doors.status == 'In Progress' %}
       <td style="background-color: red">{{ doors.status }}</td>
+      {% elif doors.status == 'Pushback' %}
+      <td style="background-color: orange">{{ doors.status }}</td>
       {% else %}
       <td>{{ doors.status }}</td>
       {% endif %}
@@ -49,6 +53,7 @@
 			<a class="dropdown-item" href="{% url 'empty' doors.id %}">Empty</a>
 			<a class="dropdown-item" href="{% url 'loaded' doors.id %}">Loaded</a>
 			<a class="dropdown-item" href="{% url 'in_progress' doors.id %}">In Progress</a>
+      <a class="dropdown-item" href="{% url 'pushback' doors.id %}">Pushback</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="{% url 'clear' doors.id %}">Clear</a>
       <a class="dropdown-item" href="{% url 'edit' doors.id %}">Add</a>

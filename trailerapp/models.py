@@ -8,11 +8,13 @@ class Door(models.Model):
     LOADED = 'Loaded'
     PROGRESS = 'In Progress'
     NONE = 'None'
+    PUSHBACK = 'Pushback'
     STATUS_CHOICES = (
         (NONE, 'None'),
         (LOADED, 'Loaded'),
         (PROGRESS, 'In Progress'),
         (EMPTY, 'Empty'),
+        (PUSHBACK, 'Pushback'),
     )
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='3')
 
