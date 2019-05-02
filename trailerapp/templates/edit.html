@@ -12,7 +12,7 @@
 			<form class="form-group mt-5" method="POST">
       	{% csrf_token %}
       		<label>Trailer number:</label>
-      		<input class="form-control" type="search" value="CMD" aria-label="Search" name="trailer_number">
+      		<input class="form-control" type="search" value="CMD" aria-label="Search" name="trailer_number" required>
       		<label>Status:</label>
       		<input class="form-control" name="status" value="Empty" required>
       		<button class="btn btn-secondary mt-2" type="submit">Submit</button>

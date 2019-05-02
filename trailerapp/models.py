@@ -3,7 +3,7 @@ from django.db import models
 
 class Door(models.Model):
     door_number = models.IntegerField()
-    trailer_number = models.CharField(max_length=100, default='No Trailer')
+    trailer_number = models.CharField(max_length=100, default='No Trailer', blank=True)
     EMPTY = 'Empty'
     LOADED = 'Loaded'
     PROGRESS = 'In Progress'

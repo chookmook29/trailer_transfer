@@ -50,6 +50,10 @@
     <td>
         {% if user.is_authenticated %}
 		<div class="dropdown">
+		{% if doors.trailer_number == 'No Trailer' %}
+		<a class="btn btn-secondary" href="{% url 'edit' doors.id %}" role="button">Add</a>
+		</div>
+		{% else %}
 		<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Set
 		</a>
@@ -62,6 +66,7 @@
       <a class="dropdown-item" href="{% url 'edit' doors.id %}">Add</a>
 		</div>
 		</div>
+		{% endif %}
      {% endif %}
       </td>
     </tr>
