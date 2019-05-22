@@ -34,22 +34,22 @@
   	{% for doors in all_doors %}
     <tr>
       {% if doors.status == 'None' %}
-      <th scope="row" style="color: green"><h3>{{ doors.door_number }}</h3></th>
+      <th scope="row" style="color: palegreen"><h3>{{ doors.door_number }}</h3></th>
       {% elif doors.status == 'Pushback' %}
-      <th scope="row" style="color: red" class='vibrate-3'><h3>{{ doors.door_number }}</h3></th>
+      <th scope="row" style="color: salmon" class='vibrate-3'><h3>{{ doors.door_number }}</h3></th>
       {% elif doors.status == 'In Progress' %}
-      <th scope="row" style="color: red" class="blink-2"><h3>{{ doors.door_number }}</h3></th>
+      <th scope="row" style="color: salmon" class="blink-2"><h3>{{ doors.door_number }}</h3></th>
       {% else %}
-      <th scope="row" style="color:red"><h3>{{ doors.door_number }}</h3></th>
+      <th scope="row" style="color: salmon"><h3>{{ doors.door_number }}</h3></th>
       {% endif %}
       <td>{{ doors.trailer_number }}
       </td>
       {% if doors.status == 'Loaded' %}
-      <td style="background-color: yellow">{{ doors.status }}</td>
+      <td style="background-color: khaki">{{ doors.status }}</td>
       {% elif doors.status == 'Empty' %}
-      <td style="background-color: green">{{ doors.status }}</td>
+      <td style="background-color: palegreen">{{ doors.status }}</td>
       {% elif doors.status == 'In Progress' %}
-      <td style="background-color: red">{{ doors.status }}</td>
+      <td style="background-color: salmon">{{ doors.status }}</td>
       {% elif doors.status == 'Pushback' %}
       <td style="background-color: orange">{{ doors.status }}</td>
       {% else %}
