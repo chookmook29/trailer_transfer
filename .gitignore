@@ -10,3 +10,4 @@ board_app/__pycache__/
 messageboard/__pychache__/
 # Other
 .DS_Store
+staticfiles/
